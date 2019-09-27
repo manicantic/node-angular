@@ -1,11 +1,22 @@
-const express = require('express')
-const app = express()
-const port = 3000
+require('dotenv').config();
+const express = require('express');
 
-const login = require('./login')
+const apiV1 = require('./app/api/v1');
+
+const app = express();
+
+app.set('port', process.env.PORT || 3001);
 
 app.use(express.json())
 
-app.post('/login', login)
+app.use('/api/v1', apiV1);
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.use((err, req, res, next) => {
+  if (err) {
+    res.sendStatus(err.status || 500);
+  } else {
+    res.sendStatus(404);
+  }
+});
+
+module.exports = app;
