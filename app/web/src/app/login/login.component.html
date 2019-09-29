@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Login</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="loginForm">
+      <div>
+        <mat-form-field>
+          <input formControlName="email" matInput placeholder="Email" type="email">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input formControlName="password" type="password" matInput placeholder="Password">
+        </mat-form-field>
+      </div>
+    </form>
+    <div *ngIf="e">
+      <span>Wrong combination</span>
+    </div>
+    <mat-progress-spinner *ngIf="formLoading" diameter="10"></mat-progress-spinner>
+  </mat-card-content>
+  <mat-card-actions>
+    <button class="md-raised md-primary" mat-raised-button (click)="onSubmit()" color="primary">Login</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,11 @@
+
+mat-card-content {
+  flex-direction: row;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+mat-form-field{
+  min-width: 300px;
+  max-width: 400px;
+}

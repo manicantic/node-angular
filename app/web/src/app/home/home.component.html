@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Encoder</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="homeForm">
+      <div>
+        <mat-form-field>
+          <input formControlName="term" matInput placeholder="Term">
+        </mat-form-field>
+      </div>
+    </form>
+    <div *ngIf="displayString">
+      <span>Encoded string: {{displayString}}</span>
+    </div>
+    <div *ngIf="e">
+      <span>Wrong input</span>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button class="md-raised md-primary" mat-raised-button (click)="onSubmit()" color="primary">Encode</button>
+  </mat-card-actions>
+</mat-card>

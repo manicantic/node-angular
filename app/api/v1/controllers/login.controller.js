@@ -5,7 +5,7 @@ const { generateAuthToken } = require('../services/auth.service');
  * @param {Response} res
  */
 const loginUser = (req, res) => {
-  const { email, password } = req.body
+  const { email, password } = req.body;
 
   if (!email || !password) return res.status(401).send('Please provide valid email and password.')
 
